@@ -9,8 +9,14 @@ const JobListings = ({ isHome = false }) => {
 
   useEffect(() => {
     const fetchJobs = async () => {
+      // const apiURL = isHome
+      //   ? "http://localhost:8000/jobs?limit=3"
+      //   : "http://localhost:8000/jobs";
+
+      const apiURL = "/api/jobs";
+
       try {
-        const res = await fetch("http://localhost:8000/jobs");
+        const res = await fetch(apiURL);
         if (!res.ok) {
           throw new Error("Failed to fetch jobs");
         }
